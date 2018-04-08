@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 class CorrectWrongOverlay extends StatefulWidget{
@@ -47,7 +46,7 @@ class CorrectWrongOverlayState extends State<CorrectWrongOverlay> with SingleTic
                 shape: BoxShape.circle
               ),
               child: new Transform.rotate(
-                angle: _iconAnimation.value * 2 * PI,
+                angle: _iconAnimation.value * 2 * 3.14,
                 child: new Icon(widget.isCorrect == true ? Icons.done : Icons.clear, size: _iconAnimation.value * 80.0),
               )
             ),
