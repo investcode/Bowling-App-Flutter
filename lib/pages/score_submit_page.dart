@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../ui/title_text.dart';
 import '../pages/bowling_landing_page.dart';
+import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyScoreSubmitPage extends StatefulWidget {
   MyScoreSubmitPage({Text test});
@@ -11,9 +13,12 @@ class MyScoreSubmitPage extends StatefulWidget {
 
 class _ScoreSubmitPage extends State<MyScoreSubmitPage>{
   final TextEditingController _controller = new TextEditingController();
-
+  static FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<FirebaseUser> user = _auth.currentUser();
+  var _firebaseUser;
     @override
     Widget build(BuildContext context){
+      user.then((value) => _firebaseUser = value);
       return new Material(
         color: Colors.purpleAccent,
         child: new Column(
@@ -46,7 +51,11 @@ class _ScoreSubmitPage extends State<MyScoreSubmitPage>{
                                 actions: <Widget>[
                                   new RaisedButton(
                                     child: new Text("Confirm"),
-                                    onPressed: () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MyBowlingLandingPage())),
+                                    onPressed: () {
+                                      print(_controller.text);
+                                      print(_firebaseUser);
+                                      Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MyBowlingLandingPage()));
+                                    }
                                   )
                                 ],
                               )
