@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../ui/title_text.dart';
 import '../pages/bowling_landing_page.dart';
+import '../pages/session-page.dart';
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -54,7 +55,7 @@ class _ScoreSubmitPage extends State<MyScoreSubmitPage>{
                                     onPressed: () {
                                       print(_controller.text);
                                       print(_firebaseUser);
-                                      Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MyBowlingLandingPage()));
+                                      Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MySessionPage()));
                                     }
                                   )
                                 ],
