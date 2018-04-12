@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../ui/title_text.dart';
 import '../ui/subtitle_text.dart';
 import '../pages/score_submit_page.dart';
+import '../pages/session-page.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,14 +16,14 @@ class MyBowlingLandingPage extends StatelessWidget {
         onTap: () {
           if (_testSignInWithGoogle() != null) {
             Navigator.of(context).push(new MaterialPageRoute(
-            builder: (BuildContext context) => new MyScoreSubmitPage()));
+            builder: (BuildContext context) => new MySessionPage()));
           }
         },
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new TitleText("Click Me!"),
-            new SubitleText("On towards the app")
+            new TitleText("New Session"),
+            new SubitleText("Welcome!")
           ],
         )
       ),
