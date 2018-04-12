@@ -45,5 +45,19 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CFBundleURLTypes</key>
+      <array>
+          <dict>
+             <key>CFBundleTypeRole</key>
+             <string>Editor</string>
+             <key>CFBundleURLSchemes</key>
+             <array>
+             <!-- reverse url of your client id, for example: -->
+				<string>https://bowling-scoresheet-f362a.firebaseio.com</string>
+             <!-- bundle id, for example: -->
+                <string>com.yourcompany.friendlychat</string>
+             </array>
+          </dict>
+      </array>
 </dict>
 </plist>
