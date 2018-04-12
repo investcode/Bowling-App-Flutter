@@ -22,42 +22,54 @@ class _MySessionPage extends State<MySessionPage>{
     Widget build(BuildContext context){
       user.then((value) => _firebaseUser = value);
       return new Material(
-        color: Colors.purpleAccent,
+        color: Colors.blueAccent,
         child: new Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            new Padding(padding: new EdgeInsets.symmetric(vertical: 20.0),),
+            new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new TitleText("Session Page"),
+              new TitleText("New Session"),
               new Card(
                 child: new Column(
                   children: <Widget>[
                     new Padding(padding: new EdgeInsets.symmetric(horizontal: 10.0),
                       child: new Column(
                         children: <Widget>[
-                        new RaisedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MyScoreSubmitPage()));
-                          },
-                          color: Colors.purpleAccent,
-                          textColor: Colors.white,
-                          child: new Text("Add Score"),
-                        ),
-                        new RaisedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MySessionOverviewPage()));
-                          },
-                          color: Colors.purpleAccent,
-                          textColor: Colors.white,
-                          child: new Text("Done Bowling"),
-                        ),
-                        new Padding(padding: new EdgeInsets.all(10.0),),
+                          new Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              new Text("Game 1", style: new TextStyle(fontSize: 25.0, color: Colors.black))
+                            ]
+                          )
                         ],
                       ) 
                     )
                   ],
                 )
-              )
+              ),
+              new RaisedButton(
+                onPressed: () {
+                  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MyScoreSubmitPage()));
+                },
+                color: Colors.purpleAccent,
+                textColor: Colors.white,
+                child: new Text("Add Score"),
+              ),
             ],
           ),
+          new Padding(padding: new EdgeInsets.symmetric(vertical: 280.0),),
+          new RaisedButton(
+          onPressed: () {
+            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MySessionOverviewPage()));
+          },
+          color: Colors.orangeAccent,
+          textColor: Colors.white,
+          child: new Text("Done Bowling"),
+        )
+          ],
+        ),
       );
     }
   }

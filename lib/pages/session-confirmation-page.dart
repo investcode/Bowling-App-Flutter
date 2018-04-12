@@ -24,7 +24,7 @@ class _MySessionConfirmationPage extends State<MySessionConfirmationPage>{
         child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new TitleText("Game Recorded!"),
+              new TitleText("Stats Recorded"),
               new Card(
                 child: new Column(
                   children: <Widget>[

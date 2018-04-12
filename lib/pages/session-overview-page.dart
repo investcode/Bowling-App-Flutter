@@ -26,7 +26,7 @@ class _MySessionOverviewPage extends State<MySessionOverviewPage>{
         child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new TitleText("Session Overview"),
+              new TitleText("Session Stats"),
               new Card(
                 child: new Column(
                   children: <Widget>[
