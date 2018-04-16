@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../pages/bowling_landing_page.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget{
@@ -14,18 +16,23 @@ class MyApp extends StatelessWidget{
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(),
+      home: new LoginPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   Future<FirebaseUser> _signIn() async{
     GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
     GoogleSignInAuthentication gsa = await googleSignInAccount.authentication;
+      GoogleSignInAccount currentUser = _googleSignIn.currentUser;
+    if (currentUser == null) {
+    // Force the user to interactively sign in
+    currentUser = await _googleSignIn.signIn();
+  }
 
     FirebaseUser user = await _auth.signInWithGoogle(
       idToken: gsa.idToken,
@@ -34,6 +41,7 @@ class MyHomePage extends StatelessWidget {
   
   return user;
   }
+
 
   void _signOut(){
     _googleSignIn.signIn();
@@ -49,7 +57,8 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           new RaisedButton(
             onPressed: () => _signIn()
-            .then((FirebaseUser user) => print(user)),
+            .then((FirebaseUser user) => 
+            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MyBowlingLandingPage()))),
             child: new Text("sign in"),
             color: Colors.green
           ),
