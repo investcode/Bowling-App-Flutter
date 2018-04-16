@@ -59,5 +59,20 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CFBundleURLTypes</key>
+  <array>
+      <dict>
+         <key>CFBundleTypeRole</key>
+         <string>Editor</string>
+         <key>CFBundleURLSchemes</key>
+         <array>
+         <!-- reverse url of your client id, for example: --> 
+			<string>com.googleusercontent.apps.1064402716206-ie5dquvsi5amqquba7iu2hs4gg43plt5</string>
+         <!-- bundle id, for example: -->
+            <string>com.TuckerMillerDev.BowlingScoresheet</string>
+         </array>
+      </dict>
+  </array>
+	
 </dict>
 </plist>
