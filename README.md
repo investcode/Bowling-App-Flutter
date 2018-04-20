@@ -1,8 +1,7 @@
-# bowling
+# Bowling App
 
-A new Flutter project.
+#### Currently work in progress
+A new Flutter project. Flutter is a google framework for mobile development on iOS and Android platforms.
+The app allows users to login and upload bowling scores to view later and compare with friends.
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+Future iterations will have global comparisons along with realtime statistics so stay tuned
